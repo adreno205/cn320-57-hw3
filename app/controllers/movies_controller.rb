@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
 
+ caches_page :index
   def show
     id = params[:id] # retrieve movie ID from URI route
     @movie = Movie.find(id) # look up movie by unique ID
@@ -7,13 +8,14 @@ class MoviesController < ApplicationController
   end
 
   def index
-    #@movies = Movie.all(:order => "title")
-    @movies = Movie.find(:all, :order => (params[:sort_by]))
-    @sort_column = params[:sort_by]
-  end
-
-  def link_to
-    #@movies = Movie.all(:order => "title")
+    ##@movies = Movie.where('rating in ?',params[:ratings].keys).order(*params[:order])
+    ##@all_ratings = ['G','PG','PG-13','R','NC-17']
+    #@movies = Movie.order(*params[:order])
+    @movies = Movie.where("rating in (?)", selected_ratings).order(params[:order])
+    @all_ratings = ['G','PG','PG-13','R','NC-17']
+    #@movies = Movie.find(:all, :order => (params[:sort_by]))
+    #@sort_column = params[:sort_by]
+    #@all_ratings = selected_ratings
   end
 
   def new
@@ -43,5 +45,23 @@ class MoviesController < ApplicationController
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
   end
+  
+  private
+
+  def selected_ratings
+    if params.has_key?(:ratings)
+      params[:ratings].keys
+    else
+      all_ratings
+    end
+  end  
+ 
+  def all_ratings
+    ['G','PG','PG-13','R','NC-17']
+  end
+
+  #def filter_checked?(rating)
+    #params[:ratings].has_key?(rating)
+  #end
 
 end
