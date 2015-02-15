@@ -57,7 +57,7 @@ after_filter :save_filtering_settings ,only: :index
   end
 
   def match_filter_url 
-    #session.clear 
+    
     if (session.has_key?(:order) && params[:order].blank?) ||
       (session.has_key?(:ratings) && params[:ratings].blank?) 
       

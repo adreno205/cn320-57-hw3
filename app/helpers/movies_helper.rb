@@ -12,12 +12,14 @@
     params[:order] == 'title' ? 'hilite' : ''
   end
   
+  def filter_chk(rating)
+    return true unless params.has_key?(:ratings)
+    params[:ratings].has_key?(rating)
+  end
+  
   def release_date_selected_class
     params[:order] == 'release_date' ? 'hilite' : ''
   end  
 
-  def filter_option_checked?(rating)
-    return true unless params.has_key?(:ratings)
-    params[:ratings].has_key?(rating)
-  end
+
   
