@@ -1,3 +1,6 @@
+#นายธนกร เหลืองขจรวิทย์ 5510613309
+#น.ส.บัณฑิตา อวยชัยเจริญ 5510613234
+
 class MoviesController < ApplicationController
 before_filter :match_filter_url, only: :index
 after_filter :save_filtering_settings ,only: :index

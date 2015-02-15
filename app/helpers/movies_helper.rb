@@ -1,3 +1,6 @@
+#นายธนกร เหลืองขจรวิทย์ 5510613309
+#น.ส.บัณฑิตา อวยชัยเจริญ 5510613234
+
   module MoviesHelper
     # Checks if a number is odd:
     def oddness(count)
