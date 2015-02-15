@@ -8,8 +8,6 @@ class MoviesController < ApplicationController
   end
 
   def index
-    ##@movies = Movie.where('rating in ?',params[:ratings].keys).order(*params[:order])
-    ##@all_ratings = ['G','PG','PG-13','R','NC-17']
     #@movies = Movie.order(*params[:order])
     @movies = Movie.where("rating in (?)", selected_ratings).order(params[:order])
     @all_ratings = ['G','PG','PG-13','R','NC-17']
@@ -59,7 +57,6 @@ class MoviesController < ApplicationController
   def all_ratings
     ['G','PG','PG-13','R','NC-17']
   end
-
   #def filter_checked?(rating)
     #params[:ratings].has_key?(rating)
   #end
