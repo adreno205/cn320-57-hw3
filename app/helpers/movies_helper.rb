@@ -4,8 +4,7 @@
       count.odd? ?  "odd" :  "even"
     end
   end
-  
-  
+
   def title_selected_class
     params[:order] == 'title' ? 'hilite' : ''
   end
@@ -18,3 +17,4 @@
     return true unless params.has_key?(:ratings)
     params[:ratings].has_key?(rating)
   end
+  

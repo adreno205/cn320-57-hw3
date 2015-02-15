@@ -44,6 +44,7 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
   
+  
   private
 
   def selected_ratings
@@ -60,4 +61,5 @@ class MoviesController < ApplicationController
   #def filter_checked?(rating)
     #params[:ratings].has_key?(rating)
   #end
+
 end
