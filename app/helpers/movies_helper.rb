@@ -4,12 +4,12 @@
       count.odd? ?  "odd" :  "even"
     end
   end
-  module MoviesHelper
+  #module MoviesHelper
     # Check if num is odd
-    def oddness(count)
-      count.odd? ? "odd" : "even"
-    end
-  end
+  #  def oddness(count)
+  #    count.odd? ? "odd" : "even"
+  #  end
+  #end
   
   def title_selected_class
     params[:order] == 'title' ? 'hilite' : ''
