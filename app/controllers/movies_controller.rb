@@ -60,5 +60,4 @@ class MoviesController < ApplicationController
   #def filter_checked?(rating)
     #params[:ratings].has_key?(rating)
   #end
-
 end
